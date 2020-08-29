@@ -1,0 +1,22 @@
+{
+  "name": "serverless-express-mongodb",
+  "version": "1.0.0",
+  "description": "a serverless Express REST API hooked up to MongoDB Atlas to work with Lambda webhooks",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"test-webhook-locally": "sls offline start --skipCacheInvalidation"
+  },
+  "author": "William Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "mongoose": "^5.10.2",
+    "serverless-http": "^2.5.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^6.7.0"
+  }
+}

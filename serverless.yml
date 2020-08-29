@@ -1,0 +1,29 @@
+service: serverless-express-mongodb
+
+custom:
+  secrets: ${file(secrets.json)}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${self:custom.secrets.NODE_ENV}
+  region: eu-central-1
+  environment: 
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    MONGO_URI: ${self:custom.secrets.MONGO_URI}
+
+functions:
+  app:
+    handler: server.run
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-offline

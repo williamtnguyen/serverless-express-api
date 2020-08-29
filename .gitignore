@@ -1,0 +1,10 @@
+# package directories
+node_modules
+jspm_packages
+
+# misc stuffs
+package-lock.json
+secrets.json
+
+# Serverless directories
+.serverless
